@@ -1,0 +1,231 @@
+#page-login-form {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-login-form form {
+  width: 35.2rem;
+  margin: 4rem auto;
+}
+
+#page-login-form .image-login {
+  display: none;
+}
+
+#page-login-form .image-login h2 {
+  color: #D4C2FF;
+  line-height: 3.6rem;
+  font: 400 2.4rem Poppins;
+}
+
+#page-login-form main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+#page-login-form main form h1 {
+  color: #32264D;
+  font: 600 3.6rem Poppins;
+  line-height: 4.6rem;
+  margin-bottom: 3rem;
+}
+
+#page-login-form .input-block + .input-block {
+  margin: 0 auto;
+}
+
+#page-login-form .input-block input {
+  margin: 0 auto;
+}
+
+#page-login-form #one {
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+
+#page-login-form #two {
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+
+#page-login-form #input-eye-container {
+  position: relative;
+}
+
+#page-login-form .eye-input {
+  position: absolute;
+  top: 0rem;
+  right: 3rem;
+}
+
+#page-login-form #eye-input-button {
+  background: transparent;
+  margin: 0;
+  outline: none;
+}
+
+#page-login-form #eye-input-button svg {
+  fill: var(--color-primary);
+}
+
+#page-login-form .input-block:focus-within::after {
+  width: 1.5px;
+  height: 4rem;
+  content: '';
+  background: var(--color-primary-light);
+  position: absolute;
+  top: 10px;
+  left: 0rem;
+}
+
+#page-login-form .input-block .input-form {
+  position: relative;
+}
+
+#page-login-form .input-block .input-form {
+  height: 6rem;
+}
+
+#page-login-form .input-block label {
+  position: absolute;
+  top: 0.3rem;
+  left: 1.7rem;
+  z-index: 1;
+  color: #C1BCCC;
+  font: 400 1.2rem Poppins;
+}
+
+#page-login-form .container-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 2.4rem;
+}
+
+#page-login-form .container-input .input-remember {
+  display: flex;
+  align-items: center;
+}
+
+#page-login-form .container-input .input-remember label,
+#page-login-form .container-input a {
+  font: 400 1.4rem Poppins;
+  line-height: 2.2rem;
+  color: #9C98A6;
+  text-decoration: none;
+}
+
+#page-login-form .container-input a:hover {
+  color: var(--color-primary);
+}
+
+#page-login-form .container-input .input-remember label {
+  margin-left: 1rem;
+}
+
+#page-login-form .container-input .input-remember input[type=checkbox] {
+  position: relative;
+}
+
+#page-login-form .container-input .input-remember input[type=checkbox]::after {
+  content: '';
+  width: 1.6rem;
+  height: 1.6rem;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#page-login-form form button {
+  width: 100%;
+  height: 5.6rem;
+  background: var(--color-secundary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.6rem Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  margin-top: 3.2rem;
+}
+
+#page-login-form form button:hover {
+  background: var(--color-secundary-dark);
+}
+
+.footer-login-form {
+  width: 100%;
+  margin-top: 10rem;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-login-form p {
+  font: 400 1.6rem Poppins;
+  line-height: 2.6rem;
+}
+
+.footer-login-form p a {
+  font-weight: bold;
+  color: var(--color-primary);
+  transition: opacity 400ms;
+}
+
+.footer-login-form p a:hover {
+  opacity: 0.8;
+}
+
+.footer-login-form span {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  font: 400 1.2rem Poppins;
+}
+
+.footer-login-form span img {
+  margin-left: 1.2rem;
+}
+
+@media (min-width: 700px) {
+  #page-login-form {
+    width: 100%;
+    max-width: 100vw;
+    height: 100vh;
+
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+
+  #page-login-form .image-login {
+    display: initial;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--color-primary) no-repeat center;
+  }
+
+  #page-login-form .image-login img {
+    height: 10rem;
+  }
+
+  .footer-login-form {
+    width: 70%;
+  }
+}
