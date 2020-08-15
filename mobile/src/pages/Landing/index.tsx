@@ -27,7 +27,7 @@ function Landing() {
   }, []);
 
   function handleNavigateToGiveClassesPage() {
-    navigate('GiveClasses');
+    navigate('Register');
   }
 
   function handleNavigateToStudyPages() {
