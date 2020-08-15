@@ -1,13 +1,16 @@
 import React, { useState, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import {AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 import logoImg from '../../assets/images/logo.svg';
 import backgroundImage from '../../assets/images/Background.svg';
 import heartIcon from '../../assets/images/icons/purple-heart.svg';
+
+import api from '../../services/api';
 
 import './styles.css';
 
@@ -16,13 +19,21 @@ function Login() {
   const [password, setPassword] = useState('');
   const [eyeStatus, setEyeStatus] = useState(false);
 
-  function handleLoginUser(e: FormEvent) {
+  const history = useHistory();
+
+  async function handleLoginUser(e: FormEvent) {
     e.preventDefault();
 
-    console.log({
-      email,
-      password
-    });
+    try {
+      await api.post('users/login', {
+        email,
+        password,
+      });
+
+      history.push('/');
+    } catch(err) {
+      console.log(err);
+    }
   };
 
   function handleEyeHideOrVisible() {
@@ -76,14 +87,14 @@ function Login() {
 
             <div className="container-input">
               <div className="input-remember">
-                <input type="checkbox" name="remember"/>
+                <input type="checkbox" name="remember" />
                 <label htmlFor="remember">Lembrar-me</label>
               </div>
               
               <Link to="/forget-password">Esqueci minha senha</Link>
             </div>
 
-            <button 
+            <Button 
               type="submit"
               style={{ 
                 backgroundColor: email === '' || password === '' 
@@ -93,7 +104,7 @@ function Login() {
               }}
             >
               Entrar
-            </button>
+            </Button>
           </form>
 
           <div className="footer-login-form">

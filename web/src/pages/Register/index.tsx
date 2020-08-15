@@ -2,7 +2,9 @@ import React, { useState, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import './styles.css';
+
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 import api from '../../services/api';
 
@@ -84,7 +86,7 @@ function Register() {
               type="password" 
             />
 
-            <button type="submit">Concluir cadastro</button>
+            <Button type="submit">Concluir cadastro</Button>
           </form>
         </main>
 

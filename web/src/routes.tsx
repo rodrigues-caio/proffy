@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Success from './pages/Success';
 import Login from './pages/Login';
 import ForgetPassword from './pages/ForgetPassword';
+import Dashboard from './pages/Dashboard';
 
 function Routes() {
   return (
@@ -19,9 +20,9 @@ function Routes() {
       <Route path="/success" component={Success} />
       <Route path="/login" component={Login} />
       <Route path="/forget-password" component={ForgetPassword} />
+      <Route path="/dashboard" component={Dashboard} />
     </BrowserRouter>
   );
-  
 };
 
 export default Routes;
