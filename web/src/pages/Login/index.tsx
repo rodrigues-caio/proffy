@@ -1,6 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
+import * as Yup from 'yup';
+
 import {AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 import Input from '../../components/Input';
@@ -18,6 +20,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [eyeStatus, setEyeStatus] = useState(false);
+  const [error, setError] = useState(false);
 
   const history = useHistory();
 
@@ -25,14 +28,25 @@ function Login() {
     e.preventDefault();
 
     try {
-      await api.post('users/login', {
-        email,
-        password,
+      let schema = Yup.object().shape({
+        email: Yup.string()
+        .required('Email obrigatório!')
+        .email('Digite um email válido.'),
+        password: Yup.string().required('Senha obrigatória.')
       });
 
-      history.push('/');
+      const response = await schema.validate({
+        email,
+        password
+      }, { abortEarly: false });
+
+      await api.post('users/login', response);
+
+      history.push('/Dashboard');
     } catch(err) {
-      console.log(err);
+      if (err instanceof Yup.ValidationError) {
+        setError(!false);
+      }
     }
   };
 
@@ -43,6 +57,10 @@ function Login() {
   return (
     <>
       <section id="page-login-form" className="container">
+        { error && <div className="message-error">
+          Preencha todos os campos!
+        </div> }
+
         <div className="image-login" style={{backgroundImage: `url(${backgroundImage})` }}>
           <div>
             <img src={logoImg} alt="Logo Proffy"/>

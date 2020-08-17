@@ -178,6 +178,35 @@
   margin-left: 1.2rem;
 }
 
+.message-error {
+  width: 20%;
+  height: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: red;
+  border-radius: 1.4rem;
+  color: #FFF;
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  z-index: 1;
+
+  opacity: 0;
+  transition: 1s;
+
+  animation: messageError 5s ease;
+}
+
+@keyframes messageError {
+  from {
+
+  } to {
+    opacity: 1;
+  }
+}
+
 @media (min-width: 700px) {
   #page-login-form {
     width: 100%;
