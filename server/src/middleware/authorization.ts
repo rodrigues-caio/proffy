@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
+import authConfig from '../config/auth';
+
 async function Authorization(
   request: Request, 
   response: Response, 
@@ -10,12 +12,14 @@ async function Authorization(
 
     if (!auth) {
       return response.json({ message: 'Please, do you need a token for access' });
-    }
+    };
+
+    const { secret } = authConfig.jwt;
 
     try {
       const [, token] = auth.split(' ');
 
-      verify(token, 'haushaushaus');
+      verify(token, secret);
   
       next();
     } catch(err) {

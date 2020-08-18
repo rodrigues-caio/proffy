@@ -1,9 +1,11 @@
 import { Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
+import { compare } from 'bcrypt';
+
+import authConfig from '../config/auth';
+
 import db from '../database/connection';
 
-import jwt from 'jsonwebtoken';
-
-import { compare } from 'bcrypt';
 
 export default class SessionController {
   public async login(request: Request, response: Response) {
@@ -20,8 +22,10 @@ export default class SessionController {
 
     if (!checkPassword) return response.status(404).json({ message: 'Password incorrect' });
 
-    const token = jwt.sign({}, 'haushaushaus', { 
-      expiresIn: '1d',
+    const { secret, expiresIn } = authConfig.jwt;
+
+    const token = jwt.sign({}, secret, { 
+      expiresIn,
      });
 
     return response.status(200).json({user, token});
