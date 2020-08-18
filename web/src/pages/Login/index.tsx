@@ -1,7 +1,9 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import * as Yup from 'yup';
+
+import AuthContext from '../../contexts/auth';
 
 import {AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
@@ -12,17 +14,20 @@ import logoImg from '../../assets/images/logo.svg';
 import backgroundImage from '../../assets/images/Background.svg';
 import heartIcon from '../../assets/images/icons/purple-heart.svg';
 
-import api from '../../services/api';
-
 import './styles.css';
 
 function Login() {
+  const history = useHistory();
+
+  const { signIn, user, signed } = useContext(AuthContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [eyeStatus, setEyeStatus] = useState(false);
   const [error, setError] = useState(false);
 
-  const history = useHistory();
+  console.log(signed);
+  console.log(user);
 
   async function handleLoginUser(e: FormEvent) {
     e.preventDefault();
@@ -35,14 +40,13 @@ function Login() {
         password: Yup.string().required('Senha obrigatória.')
       });
 
-      const response = await schema.validate({
+      await schema.validate({
         email,
         password
       }, { abortEarly: false });
 
-      await api.post('users/login', response);
+      await signIn({ email, password });
 
-      history.push('/Dashboard');
     } catch(err) {
       if (err instanceof Yup.ValidationError) {
         setError(!false);
