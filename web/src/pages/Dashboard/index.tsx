@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import AuthContext from '../../contexts/auth';
+import { useAuth } from '../../contexts/auth';
 
 function Dashboard() {
-  const { signOut } = useContext(AuthContext);
+  const { signOut } = useAuth();
 
   function handleLogout() {
     signOut();

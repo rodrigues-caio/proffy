@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import api from '../services/api';
 
 interface AuthProviderData {
@@ -19,7 +19,11 @@ export const AuthProvider: React.FC = ({ children }) => {
       const storageToken = localStorage.getItem('@proffy:token');
 
       if (storageUser && storageToken) {
+        api.defaults.headers.Authorization = `Bearer ${storageToken}`;
+
         setUser(JSON.parse(storageUser));
+
+        // setar loading como false para mobile
       }
     };
 
@@ -30,6 +34,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     const response = await api.post('users/login', data);
 
     setUser(response.data.user);
+
+    api.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
 
     localStorage.setItem('@proffy:user', JSON.stringify(response.data.user));
     localStorage.setItem('@proffy:token', response.data.token);
@@ -48,4 +54,8 @@ export const AuthProvider: React.FC = ({ children }) => {
   );
 };
 
-export default AuthContext;
+export function useAuth() {
+  const context = useContext(AuthContext);
+
+  return context;
+};

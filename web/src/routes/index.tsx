@@ -1,14 +1,33 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { Switch } from 'react-router-dom';
 
-import AuthContext from '../contexts/auth';
+import Route from './Route';
 
-import AuthRoutes from './auth.routes';
-import AppRoutes from './app.routes';
+import Register from '../pages/Register';
+import Success from '../pages/Success';
+import Login from '../pages/Login';
+
+import Landing from '../pages/Landing';
+import TeacherList from '../pages/TeacherList';
+import TeacherForm from '../pages/TeacherForm';
+import ForgetPassword from '../pages/ForgetPassword';
+import Dashboard from '../pages/Dashboard';
 
 const Routes: React.FC = () => {
-  const { signed } = useContext(AuthContext);
+  return (
+    <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/success" component={Success} />
+        <Route path="/login" component={Login} />
+        <Route path="/forget-password" component={ForgetPassword} />
 
-  return (<> <AppRoutes />  <AuthRoutes /> </>);
+        <Route path="/" exact component={Landing} isPrivate />
+        <Route path="/study" component={TeacherList} isPrivate />
+        <Route path="/give-classes" component={TeacherForm} isPrivate />
+      
+        <Route path="/dashboard" component={Dashboard} isPrivate />
+    </Switch>
+  );
 };
 
 export default Routes;
