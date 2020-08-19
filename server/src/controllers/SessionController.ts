@@ -6,7 +6,6 @@ import authConfig from '../config/auth';
 
 import db from '../database/connection';
 
-
 export default class SessionController {
   public async login(request: Request, response: Response) {
     let { email, password } = request.body;
