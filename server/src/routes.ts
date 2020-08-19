@@ -16,9 +16,7 @@ const sessionController = new SessionController();
 routes.post('/users/register', usersController.create);
 routes.post('/users/login', sessionController.login);
 
-routes.get('/dashboard', Authorizarion ,(request, response) => {
-  return response.json({ message: 'This is dashboard. Do you have a token?' });
-});
+routes.post('/dashboard', Authorizarion , usersController.post);
 
 routes.get('/classes', classesController.index);
 routes.post('/classes', classesController.create);

@@ -34,4 +34,17 @@ export default class UsersController {
       });
     }
   };
+
+  public async post(request: Request, response: Response) {
+    const { name, email } = request.body;
+
+    try {
+      console.log(name, email);
+
+      return response.status(200).json({ message: 'Deu certo!' });
+    } catch (err) {
+      console.log(err);
+    }
+
+  };
 };
