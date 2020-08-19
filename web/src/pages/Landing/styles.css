@@ -3,21 +3,11 @@
   height: 100vh;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   color: var(--color-text-in-primary);
   background: var(--color-primary);
-}
-
-#page-landing-content {
-  display: flex;
-  flex-direction: column;
-}
-
-#page-landing-content .page-landing-header{
-  display: flex;
 }
 
 .logo-container img {
@@ -112,7 +102,6 @@
     grid-template-areas: 
     "logo hero hero"
     "buttons buttons total"
-    ;
   }
 
   .logo-container {
