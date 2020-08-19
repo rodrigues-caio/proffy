@@ -42,9 +42,11 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   };
 
-  function signOut() {
+  async function signOut() {
     localStorage.clear();
     setUser(null);
+    //const response = await api.post('dashboard', { name: 'Caio', email: 'caio@usp.br' });
+    //console.log(response);
   };
 
   return (
