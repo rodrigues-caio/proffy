@@ -1,0 +1,61 @@
+#page-dashboard {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-top {
+  width: 100vw;
+  min-height: 20rem;
+
+  background-color: var(--color-primary);
+}
+
+.header {
+  width: 100%;
+  height: 4.3rem;
+
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .avatar-name {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+}
+
+.header .avatar-name img {
+  width: 4rem;
+  height: 4rem;
+
+  margin-right: 2rem;
+
+  border-radius: 50%;
+}
+
+.header .avatar-name span {
+  font: 500 1.6rem Poppins;
+  line-height: 2.6rem;
+  color: #D4C2FF;
+}
+
+.header button {
+  width: 4rem;
+  height: 4rem;
+
+  background-color: #774DD6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.5rem;
+  border: none;
+}
