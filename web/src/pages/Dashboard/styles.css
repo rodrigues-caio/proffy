@@ -8,8 +8,12 @@
 }
 
 .content-top {
-  width: 100vw;
-  min-height: 20rem;
+  width: 100%;
+  min-height: 30rem;
+
+  margin: 0 auto;
+
+  padding: 3.2rem;
 
   background-color: var(--color-primary);
 }
@@ -17,8 +21,6 @@
 .header {
   width: 100%;
   height: 4.3rem;
-
-  margin-top: 1rem;
 
   display: flex;
   justify-content: space-between;
@@ -58,4 +60,38 @@
 
   border-radius: 0.5rem;
   border: none;
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+
+  margin: 2rem auto;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image .logo {
+  text-align: center;
+}
+
+.logo-image .logo img {
+  height: 10rem;
+}
+
+.logo-image .logo h2 {
+  font: 500 2.3rem Poppins;
+  line-height: 2.6rem;
+
+  margin: 2.6rem auto;
+
+  color: #D4C2FF;
+}
+
+.hero-image {
+  width: 100%;
 }
