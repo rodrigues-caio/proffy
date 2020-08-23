@@ -26,60 +26,57 @@ function Dashboard() {
 
       <div id="page-dashboard-content" className="container">
 
-        <div className="content-all">
         <div className="content-top">
 
-<div className="header">
-  <div className="avatar-name">
-    <img src={avatarImage} alt="Caio Rodrigues"/>
-    <span>Caio Rodrigues</span>
-  </div>
+          <div className="header">
+            <div className="avatar-name">
+              <img src={avatarImage} alt="Caio Rodrigues"/>
+              <span>Caio Rodrigues</span>
+            </div>
 
-  <button onClick={handleLogout}>
-    <img src={logoutIcon} alt="Sair"/>
-  </button>
-</div>
+            <button onClick={handleLogout}>
+              <img src={logoutIcon} alt="Sair"/>
+            </button>
+          </div>
 
-<div className="logo-image">
-  <div>
-    <img src={logoImg} alt="Proffy"/>
-    <h2>Sua plataforma de estudos online.</h2>
-  </div>
-</div>
+          <div className="logo-image">
+            <div>
+              <img src={logoImg} alt="Proffy"/>
+              <h2>Sua plataforma de estudos online.</h2>
+            </div>
+          </div>
 
-<img 
-  src={landingImg} 
-  alt="Imagem de background" 
-  className="hero-image"  
-/>
+          <img 
+            src={landingImg} 
+            alt="Imagem de background" 
+            className="hero-image"  
+          />
 
-</div>
+          </div>
+          
+          <div className="content-bottom">
+            <h3>Seja bem-vindo. <strong>O que deseja fazer?</strong></h3>
 
-<div className="content-bottom">
-  <h3>Seja bem-vindo. <strong>O que deseja fazer?</strong></h3>
+            <div className="buttons">
+              <Link to="/study" className="study">
+                <img src={studyIcon} alt="Estudar"/>
+                Estudar
+              </Link>
 
-  <div className="buttons">
-    <Link to="/study" className="study">
-      <img src={studyIcon} alt="Estudar"/>
-      Estudar
-    </Link>
+              <Link to="/give-classes" className="give-classes">
+                <img src={giveClassesIcon} alt="Dar aulas"/>
+                Dar aulas
+              </Link>  
+            </div>
 
-    <Link to="/give-classes" className="give-classes">
-      <img src={giveClassesIcon} alt="Dar aulas"/>
-      Dar aulas
-    </Link>  
-  </div>
-
-  <span className="total-connections">
-    Total de 43 conexões já realizadas <img src={purpleHeartIcon} alt="Coração roxo"/>
-  </span> 
-</div>
+            <span className="total-connections">
+              Total de 43 conexões já realizadas <img src={purpleHeartIcon} alt="Coração roxo"/>
+            </span> 
+          </div>
         </div>
         
         
       </div>
-    
-    </div>
     </>
   );
 };

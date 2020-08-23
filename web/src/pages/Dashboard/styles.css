@@ -205,4 +205,26 @@
     grid-area: hero;
     height: 45rem;
   }
+
+  .content-bottom {
+    display: grid;
+    grid-template-columns: 70rem 18rem 1fr 1fr;
+    grid-template-areas: 
+    "bemvindo connection buttons buttons"
+    ;
+    align-content: center;
+  }
+
+  .content-bottom h3 {
+    grid-area: bemvindo;
+    width: 23%;
+  }
+
+  .content-bottom .total-connections {
+    grid-area: connection;
+  }
+
+  .content-bottom .buttons {
+    grid-area: buttons;
+  }
 }
