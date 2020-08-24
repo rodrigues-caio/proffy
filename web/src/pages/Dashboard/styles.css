@@ -12,8 +12,15 @@
   height: 100vh;
 }
 
+.config {
+  width: 100%;
+  min-height: 30rem;
+  background-color: var(--color-primary);
+}
+
 .content-top {
   width: 100%;
+  max-width: 1100px;
   min-height: 30rem;
 
   margin: 0 auto;
@@ -204,6 +211,11 @@
   .content-top .hero-image {
     grid-area: hero;
     height: 45rem;
+  }
+
+  .config-bottom {
+    width: 100%;
+    max-width: 1100px;
   }
 
   .content-bottom {

@@ -25,7 +25,7 @@ function Dashboard() {
     <div id="page-dashboard">
 
       <div id="page-dashboard-content" className="container">
-
+        <div className="config">
         <div className="content-top">
 
           <div className="header">
@@ -53,29 +53,33 @@ function Dashboard() {
           />
 
           </div>
-          
-          <div className="content-bottom">
-            <h3>Seja bem-vindo. <strong>O que deseja fazer?</strong></h3>
-
-            <div className="buttons">
-              <Link to="/study" className="study">
-                <img src={studyIcon} alt="Estudar"/>
-                Estudar
-              </Link>
-
-              <Link to="/give-classes" className="give-classes">
-                <img src={giveClassesIcon} alt="Dar aulas"/>
-                Dar aulas
-              </Link>  
-            </div>
-
-            <span className="total-connections">
-              Total de 43 conexões já realizadas <img src={purpleHeartIcon} alt="Coração roxo"/>
-            </span> 
-          </div>
         </div>
+       
+
+          
+          <div className="config-bottom">
+            <div className="content-bottom">
+              <h3>Seja bem-vindo. <strong>O que deseja fazer?</strong></h3>
+
+              <div className="buttons">
+                <Link to="/study" className="study">
+                  <img src={studyIcon} alt="Estudar"/>
+                  Estudar
+                </Link>
+
+                <Link to="/give-classes" className="give-classes">
+                  <img src={giveClassesIcon} alt="Dar aulas"/>
+                  Dar aulas
+                </Link>  
+              </div>
+
+              <span className="total-connections">
+                Total de 43 conexões já realizadas <img src={purpleHeartIcon} alt="Coração roxo"/>
+              </span> 
+            </div>
+          </div>
         
-        
+        </div>
       </div>
     </>
   );
