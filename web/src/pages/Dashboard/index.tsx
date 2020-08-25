@@ -59,7 +59,7 @@ function Dashboard() {
           
           <div className="config-bottom">
             <div className="content-bottom">
-              <h3>Seja bem-vindo. <strong>O que deseja fazer?</strong></h3>
+              <h3>Seja bem-vindo.<strong><br />O que deseja fazer?</strong></h3>
 
               <div className="buttons">
                 <Link to="/study" className="study">

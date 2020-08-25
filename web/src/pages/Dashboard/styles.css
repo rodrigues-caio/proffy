@@ -20,7 +20,7 @@
 
 .content-top {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   min-height: 30rem;
 
   margin: 0 auto;
@@ -195,6 +195,11 @@
   .content-top .logo-image {
     grid-area: logo;
     align-self: center;
+    margin: 0%;
+  }
+
+  .content-top .logo-image div {
+    margin-right: auto;
   }
 
   .content-top .logo-image img {
@@ -215,28 +220,43 @@
 
   .config-bottom {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .content-bottom {
     display: grid;
-    grid-template-columns: 70rem 18rem 1fr 1fr;
+    grid-template-columns: 40rem 18rem 1fr 1fr;
     grid-template-areas: 
     "bemvindo connection buttons buttons"
     ;
     align-content: center;
+    grid-gap: 1rem;
   }
 
   .content-bottom h3 {
     grid-area: bemvindo;
-    width: 23%;
+    width: 51%;
+    align-self: center;
+    text-align: initial;
+    justify-self: start;
+    margin: 0;
   }
 
   .content-bottom .total-connections {
     grid-area: connection;
+
+    align-self: center;
+    justify-self: flex-start;
+    opacity: 0.5;
   }
 
   .content-bottom .buttons {
     grid-area: buttons;
+
   }
 }
