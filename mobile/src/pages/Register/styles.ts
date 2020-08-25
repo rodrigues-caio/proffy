@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  avoidingKeyboard: {
+    flex: 1,
+  },
   container: {
     alignItems: 'center',
     flex: 1,
@@ -15,7 +18,7 @@ const styles = StyleSheet.create({
 
   content: {
     width: '100%',
-    minHeight: 340,
+    minHeight: 300,
     padding: 40,
     backgroundColor: '#8257e5'
   },
@@ -29,6 +32,105 @@ const styles = StyleSheet.create({
   logo: {
     width: 140,
     height: 47,
+  },
+
+  containerLogin: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#F0F0F7',
+    padding: 32,
+  },
+
+  headerTitle: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  titleLogin: {
+    fontFamily: 'Poppins_600SemiBold',
+    color: '#32264d',
+    fontSize: 24
+  },
+
+  titleCreateAccount: {
+    fontFamily: 'Poppins_400Regular',
+    fontSize: 12,
+    color: '#8257E5'
+  },
+
+  inputs: {
+    width: '100%',
+    fontFamily: 'Poppins_400Regular',
+    marginTop: 16,
+  },
+
+  inputEmail: {
+    width: '100%',
+    height: 64,
+    backgroundColor: '#FFF',
+    paddingLeft: 16,
+    borderColor: '#E6E6F0',
+    borderLeftWidth: 1,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+
+  inputPassword: {
+    width: '100%',
+    height: 64,
+    backgroundColor: '#FFF',
+    paddingLeft: 16,
+    borderColor: '#E6E6F0',
+    borderLeftWidth: 1,
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    borderBottomLeftRadius: 8, 
+    borderBottomRightRadius: 8,
+  },
+
+  fogotRememberContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    marginTop: 16,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  checkboxContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'  
+  },
+
+  checkbox: {
+  
+  },
+
+  text: {
+    fontFamily: 'Poppins_400Regular',
+    color: '#9C98A6',
+
+  }, 
+
+  buttonLogin: {
+    width: '100%',
+    height: 56,
+    marginTop: 16,
+
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+  },
+
+  buttonText: {
+    fontFamily: 'Archivo_600SemiBold',
+    fontSize: 16,
   },
 });
 
