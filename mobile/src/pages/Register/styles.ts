@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
   content: {
     width: '100%',
-    minHeight: 300,
+    minHeight: 280,
     padding: 40,
     backgroundColor: '#8257e5'
   },
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     width: '100%',
     fontFamily: 'Poppins_400Regular',
     marginTop: 16,
+    flex: 1,
   },
 
   inputEmail: {

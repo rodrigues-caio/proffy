@@ -9,8 +9,6 @@ import {
   CheckBox,
   KeyboardAvoidingView,
   Platform,
-  TouchableWithoutFeedback,
-  Keyboard
 } from 'react-native';
 
 import bgRegister from '../../assets/images/background-register.png';
@@ -30,7 +28,6 @@ function Register() {
       keyboardVerticalOffset={1}
       enabled
     >
-    <TouchableWithoutFeedback  onPress={Keyboard.dismiss}>
     <View style={styles.container}>
       <View style={styles.content}>
         <ImageBackground
@@ -109,7 +106,6 @@ function Register() {
         </TouchableOpacity>
       </View>
     </View>
-    </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };
