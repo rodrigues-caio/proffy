@@ -107,6 +107,14 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderBottomLeftRadius: 8, 
     borderBottomRightRadius: 8,
+    position: 'relative'
+  },
+
+  onFocusInput: {
+    position: 'absolute',
+    backgroundColor: '#000',
+    width: 20,
+    height: 20,
   },
 
   fogotRememberContainer: {

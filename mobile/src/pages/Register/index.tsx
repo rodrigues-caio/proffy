@@ -64,14 +64,18 @@ function Register() {
           />
 
           <View style={styles.inputContainer}>
-            <TextInput 
-              style={styles.inputPassword}
-              placeholder="Senha"
-              value={password}
-              onChangeText={(text) => setPassword(text)}
-              placeholderTextColor="#9C98A6"
-              secureTextEntry={eye ? true : false }
-            />
+            <View style={styles.viewInput}>
+              <TextInput 
+                style={styles.inputPassword}
+                placeholder="Senha"
+                value={password}
+                onFocus={() => styles.onFocusInput}
+                onChangeText={(text) => setPassword(text)}
+                placeholderTextColor="#9C98A6"
+                secureTextEntry={eye ? true : false }
+              />
+            </View>
+            
 
             <TouchableOpacity onPress={() => setEye(!eye)} style={styles.eyeIcon}>
               { eye 
