@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import bgRegister from '../../assets/images/background-register.png';
 import logoImg from '../../assets/images/logo.png';
@@ -22,12 +23,7 @@ function Register() {
   const [password, setPassword] = useState<string>('');
 
   return (
-    <KeyboardAvoidingView 
-      behavior={Platform.OS == 'ios' ? 'padding': 'height'}
-      style={styles.avoidingKeyboard}
-      keyboardVerticalOffset={1}
-      enabled
-    >
+    <KeyboardAwareScrollView>
     <View style={styles.container}>
       <View style={styles.content}>
         <ImageBackground
@@ -106,7 +102,7 @@ function Register() {
         </TouchableOpacity>
       </View>
     </View>
-    </KeyboardAvoidingView>
+    </KeyboardAwareScrollView>
   );
 };
 
