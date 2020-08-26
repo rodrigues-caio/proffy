@@ -82,6 +82,20 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 8,
   },
 
+  inputContainer: {
+    flex: 1,
+    width: '100%',
+    position: 'relative'
+  },
+
+  eyeIcon: {
+    position: 'absolute',
+    width: 30,
+    height: 30,
+    top: 20,
+    right: 20,
+  },
+
   inputPassword: {
     width: '100%',
     height: 64,

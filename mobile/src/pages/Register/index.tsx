@@ -11,6 +11,7 @@ import {
   Platform,
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Feather } from '@expo/vector-icons';
 
 import bgRegister from '../../assets/images/background-register.png';
 import logoImg from '../../assets/images/logo.png';
@@ -19,6 +20,8 @@ import styles from './styles';
 
 function Register() {
   const [selected, setSelected] = useState(false);
+  const [eye, setEye] = useState(true);
+
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -60,14 +63,24 @@ function Register() {
             keyboardType="email-address"
           />
 
-          <TextInput 
-            style={styles.inputPassword}
-            placeholder="Senha"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            placeholderTextColor="#9C98A6"
-            secureTextEntry={true}
-          />
+          <View style={styles.inputContainer}>
+            <TextInput 
+              style={styles.inputPassword}
+              placeholder="Senha"
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              placeholderTextColor="#9C98A6"
+              secureTextEntry={eye ? true : false }
+            />
+
+            <TouchableOpacity onPress={() => setEye(!eye)} style={styles.eyeIcon}>
+              { eye 
+              ? <Feather name="eye" size={20} color="#8257E5"/> 
+              : <Feather name="eye-off" size={20} color="#8257E5" />
+              }
+            </TouchableOpacity>
+          </View>
+         
         </View>
 
         <View style={styles.fogotRememberContainer}>
