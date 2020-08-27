@@ -85,6 +85,24 @@ const styles = StyleSheet.create({
     color: '#6A6180'
   },
 
+  textInput: {
+    position: 'absolute', 
+    top: 5, 
+    left: 16, 
+    fontFamily: 'Poppins_400Regular', 
+    fontSize: 10, 
+    color: '#C1BCCC'
+  },
+
+  focusInput: {
+    position: 'absolute', 
+    width: 2, 
+    height: 40, 
+    backgroundColor: '#8257E5', 
+    left: 0, 
+    top: 10
+  },
+
   inputContainer: {
     flex: 1,
     width: '100%',
