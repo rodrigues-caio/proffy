@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flex: 1,
-    backgroundColor: '#F0F0F7'
+    backgroundColor: '#F0F0F7',
+
   },
 
   title: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     width: '100%',
     minHeight: 280,
     padding: 40,
-    backgroundColor: '#8257e5'
+    backgroundColor: '#8257e5',
   },
 
   background: {

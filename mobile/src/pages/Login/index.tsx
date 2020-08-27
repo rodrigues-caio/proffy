@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { 
   View, 
   Text, 
@@ -10,12 +10,12 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Feather } from '@expo/vector-icons';
 
-import bgRegister from '../../assets/images/background-register.png';
+import bgLogin from '../../assets/images/background-register.png';
 import logoImg from '../../assets/images/logo.png';
 
 import styles from './styles';
 
-function Register() {
+const Login: React.FC = () => {
   const [selected, setSelected] = useState(false);
   const [eye, setEye] = useState(true);
   const [isFocused, setIsFocused] =  useState(false);
@@ -24,16 +24,23 @@ function Register() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const handleLogin = useCallback(() => {
+   
+  }, []);
+
   return (
     <KeyboardAwareScrollView>
 
       <View style={styles.container}>
+
         <View style={styles.content}>
+        
+        
           <ImageBackground
             resizeMode="contain"
-            source={bgRegister}
+            source={bgLogin}
             style={styles.background}
-          >
+            >
             <View>
               <Image source={logoImg} style={styles.logo} />
               <Text style={styles.title}>
@@ -125,6 +132,8 @@ function Register() {
             ? { backgroundColor: '#DCDCE5' } 
             : { backgroundColor: '#04D361' } 
             ]}
+
+            onPress={() => handleLogin()}
           >
             <Text 
               style={[styles.buttonText, 
@@ -141,4 +150,4 @@ function Register() {
   );
 };
 
-export default Register;
+export default Login;
