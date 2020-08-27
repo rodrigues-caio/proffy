@@ -6,9 +6,6 @@ import {
   ImageBackground, 
   TextInput, 
   TouchableOpacity,
-  CheckBox,
-  KeyboardAvoidingView,
-  Platform,
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Feather } from '@expo/vector-icons';
@@ -21,6 +18,8 @@ import styles from './styles';
 function Register() {
   const [selected, setSelected] = useState(false);
   const [eye, setEye] = useState(true);
+  const [isFocused, setIsFocused] =  useState(false);
+  const [isFocused2, setIsFocused2] =  useState(false);
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -52,31 +51,39 @@ function Register() {
         </View>
 
         <View style={styles.inputs}>
-          <TextInput 
-            style={styles.inputEmail}
-            placeholder="E-mail"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-            placeholderTextColor="#9C98A6"
-            autoCapitalize="none"
-            autoCompleteType="email"
-            keyboardType="email-address"
-          />
+          <View style={{ width: '100%', position: 'relative' }}>
+            <TextInput 
+              style={styles.inputEmail}
+              placeholder="E-mail"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+              onFocus={() => setIsFocused2(true)}
+              onBlur={() => setIsFocused2(false)}
+              placeholderTextColor="#9C98A6"
+              autoCapitalize="none"
+              autoCompleteType="email"
+              keyboardType="email-address"
+            />
+            { isFocused2 &&  <View style={{ position: 'absolute', width: 2, height: 40, backgroundColor: '#8257E5', left: 0, top: 10 }} ></View>}
+          </View>
 
           <View style={styles.inputContainer}>
-            <View>
-              <TextInput 
-                style={styles.inputPassword}
-                placeholder="Senha"
-                value={password}
-                onFocus={() => styles.onFocusInput}
-                onChangeText={(text) => setPassword(text)}
-                placeholderTextColor="#9C98A6"
-                secureTextEntry={eye ? true : false }
-              />
+            <View style={{ width: '100%', position: 'relative' }}>
+                <TextInput 
+                  style={styles.inputPassword}
+                  placeholder="Senha"
+                  value={password}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
+                  onChangeText={(text) => setPassword(text)}
+                  placeholderTextColor="#9C98A6"
+                  secureTextEntry={eye ? true : false }
+                />
+
+                { isFocused &&  <View style={{ position: 'absolute', width: 2, height: 40, backgroundColor: '#8257E5', left: 0, top: 10 }} ></View>}
+                
             </View>
             
-
             <TouchableOpacity onPress={() => setEye(!eye)} style={styles.eyeIcon}>
               { eye 
               ? <Feather name="eye" size={20} color="#8257E5"/> 
@@ -89,11 +96,11 @@ function Register() {
 
         <View style={styles.fogotRememberContainer}>
           <View style={styles.checkboxContainer}>
-              <CheckBox 
-                style={styles.checkbox}
-                value={selected}
-                onValueChange={setSelected}
-              />
+            <TouchableOpacity onPress={() => setSelected(!selected)}>
+              <View style={[styles.checkbox, selected ? { backgroundColor: '#04D361' } : { backgroundColor: '#FFF' }]}>
+                { selected && <Feather name="check" size={16} color="#FFF" /> }
+              </View>
+            </TouchableOpacity>
               <Text style={styles.text}>Lembrar-me</Text>
           </View>
 
