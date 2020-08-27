@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import bgLogin from '../../assets/images/background-register.png';
 import logoImg from '../../assets/images/logo.png';
@@ -16,6 +17,8 @@ import logoImg from '../../assets/images/logo.png';
 import styles from './styles';
 
 const Login: React.FC = () => {
+  const { navigate } = useNavigation();
+
   const [selected, setSelected] = useState(false);
   const [eye, setEye] = useState(true);
   const [isFocused, setIsFocused] =  useState(false);
@@ -27,6 +30,10 @@ const Login: React.FC = () => {
   const handleLogin = useCallback(() => {
    
   }, []);
+
+  function handleNavigateToRegister() {
+    navigate('PartOneRegister');
+  };
 
   return (
     <KeyboardAwareScrollView>
@@ -53,7 +60,7 @@ const Login: React.FC = () => {
         <View style={styles.containerLogin}>
           <View style={styles.headerTitle}>
             <Text style={styles.titleLogin}>Fazer login</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleNavigateToRegister}>
               <Text style={styles.titleCreateAccount}>Criar uma conta</Text>
             </TouchableOpacity>
           </View>

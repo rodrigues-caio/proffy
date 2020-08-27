@@ -7,6 +7,8 @@ import GiveClasses from '../pages/GiveClasses';
 import StudyTabs from './StudyTabs';
 import Login from '../pages/Login';
 
+import PartOneRegister from '../pages/Register/PartOne';
+
 const { Navigator, Screen } = createStackNavigator();
 
 function AppStack() {
@@ -16,7 +18,9 @@ function AppStack() {
         <Screen name="Landing" component={Landing} />
         <Screen name="GiveClasses" component={GiveClasses} />
         <Screen name="Study" component={StudyTabs} />
-        <Screen name="Register" component={Login} />
+        <Screen name="Login" component={Login} />
+
+        <Screen name="PartOneRegister" component={PartOneRegister} />
       </Navigator>
     </NavigationContainer>
   );
