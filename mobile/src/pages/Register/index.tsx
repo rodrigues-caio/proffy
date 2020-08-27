@@ -64,7 +64,7 @@ function Register() {
           />
 
           <View style={styles.inputContainer}>
-            <View style={styles.viewInput}>
+            <View>
               <TextInput 
                 style={styles.inputPassword}
                 placeholder="Senha"
