@@ -64,6 +64,9 @@ function Register() {
               autoCompleteType="email"
               keyboardType="email-address"
             />
+            { email !== '' && <Text style={{ position: 'absolute', top: 5, left: 16, fontFamily: 'Poppins_400Regular', fontSize: 10, color: '#C1BCCC'  }}>Email</Text> }
+
+
             { isFocused2 &&  <View style={{ position: 'absolute', width: 2, height: 40, backgroundColor: '#8257E5', left: 0, top: 10 }} ></View>}
           </View>
 
@@ -79,6 +82,9 @@ function Register() {
                   placeholderTextColor="#9C98A6"
                   secureTextEntry={eye ? true : false }
                 />
+
+                { password !== '' && <Text style={{ position: 'absolute', top: 5, left: 16, fontFamily: 'Poppins_400Regular', fontSize: 10, color: '#C1BCCC'  }}>Senha</Text> }
+                
 
                 { isFocused &&  <View style={{ position: 'absolute', width: 2, height: 40, backgroundColor: '#8257E5', left: 0, top: 10 }} ></View>}
                 

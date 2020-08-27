@@ -80,6 +80,9 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
+    fontFamily: 'Poppins_400Regular',
+    fontSize: 14,
+    color: '#6A6180'
   },
 
   inputContainer: {
@@ -108,6 +111,9 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 8, 
     borderBottomRightRadius: 8,
     position: 'relative',
+    fontFamily: 'Poppins_400Regular',
+    fontSize: 14,
+    color: '#6A6180'
   },
 
   onFocusInput: {
