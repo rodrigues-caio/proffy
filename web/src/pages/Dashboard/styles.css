@@ -57,14 +57,14 @@
 .header .avatar-name span {
   font: 500 1.6rem Poppins;
   line-height: 2.6rem;
-  color: #D4C2FF;
+  color: #d4c2ff;
 }
 
 .header button {
   width: 4rem;
   height: 4rem;
 
-  background-color: #774DD6;
+  background-color: #774dd6;
 
   display: flex;
   align-items: center;
@@ -72,6 +72,11 @@
 
   border-radius: 0.5rem;
   border: none;
+  transition: background-color 400ms;
+}
+
+.header button:hover {
+  background-color: var(--color-text-title);
 }
 
 .logo-image {
@@ -97,7 +102,7 @@
 
   margin: 2rem auto;
 
-  color: #D4C2FF;
+  color: #d4c2ff;
 }
 
 .hero-image {
@@ -120,7 +125,7 @@
   width: 30rem;
   height: 10.4rem;
   border-radius: 0.8rem;
-  font: 700 2.0rem Archivo;
+  font: 700 2rem Archivo;
 
   display: flex;
   align-items: center;
@@ -181,10 +186,9 @@
     display: grid;
     grid-template-rows: 5.6rem 1fr;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    "header header"
-    "logo hero"
-    ;
+    grid-template-areas:
+      "header header"
+      "logo hero";
     grid-row-gap: 6rem;
   }
 
@@ -231,9 +235,7 @@
   .content-bottom {
     display: grid;
     grid-template-columns: 40rem 18rem 1fr 1fr;
-    grid-template-areas: 
-    "bemvindo connection buttons buttons"
-    ;
+    grid-template-areas: "bemvindo connection buttons buttons";
     align-content: center;
     grid-gap: 1rem;
   }
@@ -257,6 +259,5 @@
 
   .content-bottom .buttons {
     grid-area: buttons;
-
   }
 }
