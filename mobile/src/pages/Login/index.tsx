@@ -1,57 +1,57 @@
-import React, { useState, useCallback } from 'react';
-import { 
-  View, 
-  Text, 
-  Image, 
-  ImageBackground, 
-  TextInput, 
+import React, { useState, useCallback } from "react";
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  TextInput,
   TouchableOpacity,
-} from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+} from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-import bgLogin from '../../assets/images/background-register.png';
-import logoImg from '../../assets/images/logo.png';
+import bgLogin from "../../assets/images/background-register.png";
+import logoImg from "../../assets/images/logo.png";
 
-import styles from './styles';
+import styles from "./styles";
 
 const Login: React.FC = () => {
   const { navigate } = useNavigation();
 
   const [selected, setSelected] = useState(false);
   const [eye, setEye] = useState(true);
-  const [isFocused, setIsFocused] =  useState(false);
-  const [isFocused2, setIsFocused2] =  useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused2, setIsFocused2] = useState(false);
 
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleLogin = useCallback(() => {
-   
+    if (email != "" && password != "") {
+      console.log("Preencha os campos!");
+    }
+
+    console.log({ email, password });
   }, []);
 
   function handleNavigateToRegister() {
-    navigate('PartOneRegister');
-  };
+    navigate("PartOneRegister");
+  }
 
   return (
     <KeyboardAwareScrollView>
-
       <View style={styles.container}>
-
         <View style={styles.content}>
-        
-        
           <ImageBackground
             resizeMode="contain"
             source={bgLogin}
             style={styles.background}
-            >
+          >
             <View>
               <Image source={logoImg} style={styles.logo} />
               <Text style={styles.title}>
-                Sua plataforma de {'\n'}estudos online.
+                Sua plataforma de {"\n"}estudos online.
               </Text>
             </View>
           </ImageBackground>
@@ -66,8 +66,8 @@ const Login: React.FC = () => {
           </View>
 
           <View style={styles.inputs}>
-            <View style={{ width: '100%', position: 'relative' }}>
-              <TextInput 
+            <View style={{ width: "100%", position: "relative" }}>
+              <TextInput
                 style={styles.inputEmail}
                 placeholder="E-mail"
                 value={email}
@@ -79,49 +79,54 @@ const Login: React.FC = () => {
                 autoCompleteType="email"
                 keyboardType="email-address"
               />
-              { email !== '' && <Text style={styles.textInput}>Email</Text> }
+              {email !== "" && <Text style={styles.textInput}>Email</Text>}
 
-              { isFocused2 &&  <View style={styles.focusInput}></View>}
+              {isFocused2 && <View style={styles.focusInput}></View>}
             </View>
 
             <View style={styles.inputContainer}>
-              <View style={{ width: '100%', position: 'relative' }}>
-                  <TextInput 
-                    style={styles.inputPassword}
-                    placeholder="Senha"
-                    value={password}
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
-                    onChangeText={(text) => setPassword(text)}
-                    placeholderTextColor="#9C98A6"
-                    secureTextEntry={eye ? true : false }
-                  />
+              <View style={{ width: "100%", position: "relative" }}>
+                <TextInput
+                  style={styles.inputPassword}
+                  placeholder="Senha"
+                  value={password}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
+                  onChangeText={(text) => setPassword(text)}
+                  placeholderTextColor="#9C98A6"
+                  secureTextEntry={eye ? true : false}
+                />
 
-                  { password !== '' && <Text style={styles.textInput}>Senha</Text> }
-                  
+                {password !== "" && <Text style={styles.textInput}>Senha</Text>}
 
-                  { isFocused &&  <View style={styles.focusInput} ></View>}
-                  
+                {isFocused && <View style={styles.focusInput}></View>}
               </View>
-              
-              <TouchableOpacity 
-                onPress={() => setEye(!eye)} 
+
+              <TouchableOpacity
+                onPress={() => setEye(!eye)}
                 style={styles.eyeIcon}
               >
-                { eye 
-                ? <Feather name="eye" size={20} color="#8257E5"/> 
-                : <Feather name="eye-off" size={20} color="#8257E5" />
-                }
+                {eye ? (
+                  <Feather name="eye" size={20} color="#8257E5" />
+                ) : (
+                  <Feather name="eye-off" size={20} color="#8257E5" />
+                )}
               </TouchableOpacity>
             </View>
-          
           </View>
 
           <View style={styles.fogotRememberContainer}>
             <View style={styles.checkboxContainer}>
               <TouchableOpacity onPress={() => setSelected(!selected)}>
-                <View style={[styles.checkbox, selected ? { backgroundColor: '#04D361' } : { backgroundColor: '#FFF' }]}>
-                  { selected && <Feather name="check" size={16} color="#FFF" /> }
+                <View
+                  style={[
+                    styles.checkbox,
+                    selected
+                      ? { backgroundColor: "#04D361" }
+                      : { backgroundColor: "#FFF" },
+                  ]}
+                >
+                  {selected && <Feather name="check" size={16} color="#FFF" />}
                 </View>
               </TouchableOpacity>
 
@@ -133,26 +138,28 @@ const Login: React.FC = () => {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity 
-            style={[styles.buttonLogin, 
-            (email === '' || password === '') 
-            ? { backgroundColor: '#DCDCE5' } 
-            : { backgroundColor: '#04D361' } 
+          <TouchableOpacity
+            style={[
+              styles.buttonLogin,
+              email === "" || password === ""
+                ? { backgroundColor: "#DCDCE5" }
+                : { backgroundColor: "#04D361" },
             ]}
-
             onPress={() => handleLogin()}
           >
-            <Text 
-              style={[styles.buttonText, 
-              (email === '' || password === '') 
-              ? { color: '#9C98A6' }
-              : { color: '#FFF' }
+            <Text
+              style={[
+                styles.buttonText,
+                email === "" || password === ""
+                  ? { color: "#9C98A6" }
+                  : { color: "#FFF" },
               ]}
-            >Entrar</Text>
+            >
+              Entrar
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
-
     </KeyboardAwareScrollView>
   );
 };
