@@ -15,6 +15,7 @@ import bgLogin from "../../assets/images/background-register.png";
 import logoImg from "../../assets/images/logo.png";
 
 import styles from "./styles";
+import api from "../../services/api";
 
 const Login: React.FC = () => {
   const { navigate } = useNavigation();
@@ -27,12 +28,13 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleLogin = useCallback(() => {
-    if (email != "" && password != "") {
-      console.log("Preencha os campos!");
-    }
+  const handleLogin = useCallback(async () => {
+    const response = await api.post("/users/login", {
+      email,
+      password,
+    });
 
-    console.log({ email, password });
+    console.log(response);
   }, []);
 
   function handleNavigateToRegister() {
