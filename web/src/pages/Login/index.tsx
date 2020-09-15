@@ -1,27 +1,26 @@
-import React, { useState, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, FormEvent, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
-import { useAuth } from '../../contexts/auth';
+import { useAuth } from "../../contexts/auth";
 
-import {AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Input from "../../components/Input";
+import Button from "../../components/Button";
 
-import logoImg from '../../assets/images/logo.svg';
-import backgroundImage from '../../assets/images/Background.svg';
-import heartIcon from '../../assets/images/icons/purple-heart.svg';
+import logoImg from "../../assets/images/logo.svg";
+import backgroundImage from "../../assets/images/Background.svg";
+import heartIcon from "../../assets/images/icons/purple-heart.svg";
 
-import './styles.css';
+import "./styles.css";
 
 function Login() {
-
   const { signIn, user, signed } = useAuth();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [eyeStatus, setEyeStatus] = useState(false);
   const [error, setError] = useState(false);
 
@@ -34,94 +33,107 @@ function Login() {
     try {
       let schema = Yup.object().shape({
         email: Yup.string()
-        .required('Email obrigatório!')
-        .email('Digite um email válido.'),
-        password: Yup.string().required('Senha obrigatória.')
+          .required("Email obrigatório!")
+          .email("Digite um email válido."),
+        password: Yup.string().required("Senha obrigatória."),
       });
 
-      await schema.validate({
-        email,
-        password
-      }, { abortEarly: false });
+      await schema.validate(
+        {
+          email,
+          password,
+        },
+        { abortEarly: false }
+      );
 
       await signIn({ email, password });
-
-    } catch(err) {
+    } catch (err) {
       if (err instanceof Yup.ValidationError) {
         setError(!false);
       }
     }
-  };
+  }
 
   function handleEyeHideOrVisible() {
     setEyeStatus(!eyeStatus);
-  };
+  }
 
   return (
     <>
       <section id="page-login-form" className="container">
-        { error && <div className="message-error">
-          Preencha todos os campos!
-        </div> }
+        {error && (
+          <div className="message-error">Preencha todos os campos!</div>
+        )}
 
-        <div className="image-login" style={{backgroundImage: `url(${backgroundImage})` }}>
+        <div
+          className="image-login"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        >
           <div>
-            <img src={logoImg} alt="Logo Proffy"/>
-            <h2>Sua plataforma de<br/>estudos online.</h2>
+            <img src={logoImg} alt="Logo Proffy" />
+            <h2>
+              Sua plataforma de
+              <br />
+              estudos online.
+            </h2>
           </div>
         </div>
 
         <main>
-          
-          <form onSubmit={handleLoginUser} >
+          <form onSubmit={handleLoginUser}>
             <h1>Fazer login</h1>
-            
-            <Input 
+
+            <Input
               className="input-form"
               id="one"
-              name="email" 
+              name="email"
               label="E-mail"
               value={email}
-              onChange={e => setEmail(e.target.value)}
-              type="email" 
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
             />
-            
+
             <div id="input-eye-container">
-              <Input 
+              <Input
                 id="two"
                 className="input-form"
                 label="Senha"
-                name="password" 
+                name="password"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
-                type={eyeStatus ? 'text':'password'}
+                onChange={(e) => setPassword(e.target.value)}
+                type={eyeStatus ? "text" : "password"}
               />
 
               <div className="eye-input">
-                <button type="button" id="eye-input-button" onClick={handleEyeHideOrVisible}>
-                  { eyeStatus === false ? <AiOutlineEye size={25} />: <AiOutlineEyeInvisible size={25} /> }
+                <button
+                  type="button"
+                  id="eye-input-button"
+                  onClick={handleEyeHideOrVisible}
+                >
+                  {eyeStatus === false ? (
+                    <AiOutlineEye size={25} />
+                  ) : (
+                    <AiOutlineEyeInvisible size={25} />
+                  )}
                 </button>
               </div>
             </div>
-
-            
 
             <div className="container-input">
               <div className="input-remember">
                 <input type="checkbox" name="remember" />
                 <label htmlFor="remember">Lembrar-me</label>
               </div>
-              
+
               <Link to="/forget-password">Esqueci minha senha</Link>
             </div>
 
-            <Button 
+            <Button
               type="submit"
-              style={{ 
-                backgroundColor: email === '' || password === '' 
-                ? '#DCDCE5' : '#04D361', 
-                color: email === '' || password === '' 
-                ? '#9C98A6' : '#FFF'
+              style={{
+                backgroundColor:
+                  email === "" || password === "" ? "#DCDCE5" : "#04D361",
+                color: email === "" || password === "" ? "#9C98A6" : "#FFF",
               }}
             >
               Entrar
@@ -129,14 +141,17 @@ function Login() {
           </form>
 
           <div className="footer-login-form">
-            <p>Não tem conta? <br/> <Link to="/register">Cadastre-se</Link></p>
-            <span>É de graça <img src={heartIcon} alt="Coração"/></span>
+            <p>
+              Não tem conta? <br /> <Link to="/register">Cadastre-se</Link>
+            </p>
+            <span>
+              É de graça <img src={heartIcon} alt="Coração" />
+            </span>
           </div>
         </main>
-
       </section>
     </>
   );
-};
+}
 
 export default Login;
