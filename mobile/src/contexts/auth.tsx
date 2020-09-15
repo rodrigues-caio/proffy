@@ -4,18 +4,21 @@ import AsyncStorage from "@react-native-community/async-storage";
 import api from "../services/api";
 
 interface AuthProviderData {
+  signed: boolean;
+  user: object | null;
   signIn(data: object): Promise<void>;
+  signOut(): void;
 }
 
-const authContext = createContext<AuthProviderData>({} as AuthProviderData);
+const AuthContext = createContext<AuthProviderData>({} as AuthProviderData);
 
-export const AuthProvider: React.FC = () => {
+export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<object | null>(null);
 
   useEffect(() => {
     async function loadStorageData() {
-      const storageUser = AsyncStorage.getItem("Proffy:user");
-      const storageToken = AsyncStorage.getItem("Proffy:token");
+      const storageUser = await AsyncStorage.getItem("Proffy:user");
+      const storageToken = await AsyncStorage.getItem("Proffy:token");
 
       if (storageUser && storageToken) {
         api.defaults.headers.Authorization = `Bearer ${storageToken}`;
@@ -37,4 +40,15 @@ export const AuthProvider: React.FC = () => {
     AsyncStorage.setItem("Proffy:user", JSON.stringify(response.data.user));
     AsyncStorage.setItem("Proffy:token", response.data.token);
   }
+
+  async function signOut() {
+    AsyncStorage.clear();
+    setUser(null);
+  }
+
+  return (
+    <AuthContext.Provider value={{ signed: !!user, signIn, signOut }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
