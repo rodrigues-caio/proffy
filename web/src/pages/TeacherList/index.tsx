@@ -1,7 +1,5 @@
 import React, { useState, FormEvent } from "react";
 
-import path from "path";
-
 import PageHeader from "../../components/PageHeader";
 import TeacherItem, { Teacher } from "../../components/TeacherItem";
 import Select from "../../components/Select";
