@@ -8,7 +8,6 @@ interface ResponseDataUser {
     email: string;
     password: string;
   };
-  token: string;
 }
 
 interface AuthProviderData {

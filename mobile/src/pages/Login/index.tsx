@@ -34,7 +34,12 @@ const Login: React.FC = () => {
 
   const handleLogin = useCallback(async () => {
     try {
-      const response = await signIn({ email, password });
+      const AuthenticateUser = {
+        email,
+        password,
+      };
+
+      const response = await signIn(AuthenticateUser);
 
       console.log(response);
       navigate("Landing");
