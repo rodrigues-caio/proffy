@@ -11,6 +11,8 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
+import { useAuth } from "../../contexts/auth";
+
 import bgLogin from "../../assets/images/background-register.png";
 import logoImg from "../../assets/images/logo.png";
 
@@ -18,6 +20,8 @@ import styles from "./styles";
 import api from "../../services/api";
 
 const Login: React.FC = () => {
+  const { signIn } = useAuth();
+
   const { navigate } = useNavigation();
 
   const [selected, setSelected] = useState(false);
@@ -29,12 +33,14 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = useCallback(async () => {
-    const response = await api.post("/users/login", {
-      email,
-      password,
-    });
+    try {
+      const response = await signIn({ email, password });
 
-    console.log(response);
+      console.log(response);
+      navigate("Landing");
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
   function handleNavigateToRegister() {

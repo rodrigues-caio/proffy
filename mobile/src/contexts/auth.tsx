@@ -3,10 +3,18 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 import api from "../services/api";
 
+interface ResponseDataUser {
+  user: {
+    email: string;
+    password: string;
+  };
+  token: string;
+}
+
 interface AuthProviderData {
   signed: boolean;
   user: object | null;
-  signIn(data: object): Promise<void>;
+  signIn(data: object): Promise<ResponseDataUser>;
   signOut(): void;
 }
 
@@ -39,6 +47,13 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     AsyncStorage.setItem("Proffy:user", JSON.stringify(response.data.user));
     AsyncStorage.setItem("Proffy:token", response.data.token);
+
+    const { user, token } = response.data;
+
+    return {
+      user,
+      token,
+    };
   }
 
   async function signOut() {
