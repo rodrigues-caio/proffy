@@ -29,7 +29,7 @@ function TeacherList() {
 
     setTeachers(response.data);
   }
-
+  // refatorar
   return (
     <div id="page-teacher-list" className="container">
       <PageHeader title="Estes são os proffys disponíveis" namePage="Estudar">
