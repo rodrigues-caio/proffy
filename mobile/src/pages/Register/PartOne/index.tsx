@@ -15,10 +15,10 @@ const PartOne: React.FC = () => {
 
         <View style={styles.points}>
           <View>
-            <Text>.</Text>
+            <Text style={styles.point}>.</Text>
           </View>
           <View>
-            <Text>.</Text>
+            <Text style={styles.point}>.</Text>
           </View>
         </View>
       </View>

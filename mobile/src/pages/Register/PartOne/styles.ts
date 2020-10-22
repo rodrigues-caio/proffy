@@ -5,11 +5,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#E5E5E5",
     width: "100%",
+    padding: 32,
   },
 
-  header: {},
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 
-  points: {},
+  points: {
+    flexDirection: "row",
+  },
+
+  point: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 });
 
 export default styles;
