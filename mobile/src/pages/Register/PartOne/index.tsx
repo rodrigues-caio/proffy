@@ -19,6 +19,7 @@ const PartOne: React.FC = () => {
           </View>
           <View>
             <Text style={styles.point}>.</Text>
+            <Text>CLique aqui</Text>
           </View>
         </View>
       </View>
